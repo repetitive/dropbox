@@ -180,7 +180,7 @@ func DownloadFile(token, localFilePath string, fileEntry *files.FileMetadata) er
 		return err
 	}
 
-	destination, err := fs.CreateFile(localFilePath)
+	destination, err := createFile(localFilePath)
 	if err != nil {
 		log.WithError(err).WithField("path", localFilePath).Error("error creating file")
 		return err
